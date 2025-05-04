@@ -1,0 +1,129 @@
+{
+  "transactionFeatures": [
+    {
+      "name": "amount",
+      "description": "Total transaction amount",
+      "type": "numeric",
+      "importance": "high",
+      "preprocessing": "StandardScaler"
+    },
+    {
+      "name": "hour",
+      "description": "Hour of day when transaction occurred",
+      "type": "categorical",
+      "importance": "medium",
+      "preprocessing": "CyclicalEncoder"
+    },
+    {
+      "name": "dayOfWeek",
+      "description": "Day of week when transaction occurred",
+      "type": "categorical",
+      "importance": "medium",
+      "preprocessing": "CyclicalEncoder"
+    },
+    {
+      "name": "isWeekend",
+      "description": "Whether transaction occurred on weekend",
+      "type": "boolean",
+      "importance": "low",
+      "preprocessing": "None"
+    },
+    {
+      "name": "cardType",
+      "description": "Type of card used (credit, debit, etc.)",
+      "type": "categorical",
+      "importance": "medium",
+      "preprocessing": "OneHotEncoder"
+    },
+    {
+      "name": "country",
+      "description": "Country where transaction originated",
+      "type": "categorical",
+      "importance": "high",
+      "preprocessing": "CountryRiskEncoder"
+    },
+    {
+      "name": "isHighRiskCountry",
+      "description": "Whether country is on high-risk list",
+      "type": "boolean",
+      "importance": "high",
+      "preprocessing": "None"
+    },
+    {
+      "name": "isLocationMismatch",
+      "description": "Whether IP location differs from billing address",
+      "type": "boolean",
+      "importance": "high",
+      "preprocessing": "None"
+    }
+  ],
+  
+  "userBehaviorFeatures": [
+    {
+      "name": "isNewIp",
+      "description": "Whether IP address is new for this user",
+      "type": "boolean",
+      "importance": "high",
+      "preprocessing": "None"
+    },
+    {
+      "name": "isNewDevice",
+      "description": "Whether device is new for this user",
+      "type": "boolean",
+      "importance": "high",
+      "preprocessing": "None"
+    },
+    {
+      "name": "numTransactionsLast24h",
+      "description": "Number of transactions in last 24 hours",
+      "type": "numeric",
+      "importance": "high",
+      "preprocessing": "LogTransformer"
+    },
+    {
+      "name": "numTransactionsLast7d",
+      "description": "Number of transactions in last 7 days",
+      "type": "numeric",
+      "importance": "medium",
+      "preprocessing": "LogTransformer"
+    },
+    {
+      "name": "totalAmountLast24h",
+      "description": "Total amount spent in last 24 hours",
+      "type": "numeric",
+      "importance": "high",
+      "preprocessing": "LogTransformer"
+    },
+    {
+      "name": "numDeclinedLast24h",
+      "description": "Number of declined transactions in last 24 hours",
+      "type": "numeric",
+      "importance": "high",
+      "preprocessing": "None"
+    }
+  ],
+  
+  "derivedFeatures": [
+    {
+      "name": "amountDeviation",
+      "description": "Deviation from user's typical transaction amount",
+      "type": "numeric",
+      "importance": "high",
+      "preprocessing": "StandardScaler"
+    },
+    {
+      "name": "isAbnormalTime",
+      "description": "Whether transaction time is abnormal for this user",
+      "type": "boolean",
+      "importance": "medium",
+      "preprocessing": "None"
+    },
+    {
+      "name": "velocityScore",
+      "description": "Score based on transaction velocity",
+      "type": "numeric",
+      "importance": "high",
+      "preprocessing": "StandardScaler"
+    }
+  ]
+}
