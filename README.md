@@ -101,7 +101,4 @@ The fraud detection system uses several machine learning models:
 2. **User Behavior Analysis**: Detects unusual patterns in user behavior
 3. **Anomaly Detection**: Identifies outliers in transaction data
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
